@@ -1,0 +1,120 @@
+<form [formGroup]="employeeform" (ngSubmit)="onSubmit()" class="form-horizontal">
+    <div class="panal panal-primary">
+      <div class="panal-heading">
+        <h3 class="panal-title">Reactive Employee Registration Form</h3>
+      </div>
+      <div class="panal-body">
+        <div class="form-Group">
+          <label class="col-md-6 control-label" for="Name">Name</label>
+          <div class="col-md-6">
+            <input id="name" formControlName="name" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-Group">
+            <label class="col-md-6 control-label" for="MobileNo">MobileNo</label>
+            <div class="col-md-6">
+              <input id="mobileno" formControlName="mobileno" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="form-Group">
+        <label class="col-md-6 control-label" for="Address">Address</label>
+        <div class="col-md-6">
+          <input id="address" formControlName="address" type="text" class="form-control">
+  </div>
+</div>
+
+
+    <div class="form-Group">
+        <label class="col-md-6 control-label" for="Email">Email</label>
+        <div class="col-md-6">
+          <input id="email" formControlName="email" type="email" class="form-control">
+  </div>
+  </div>
+  <div class="form-Group">
+    <label class="col-md-6 control-label" for="Password">Password</label>
+    <div class="col-md-6">
+      <input id="pass" formControlName="pass" type="password" class="form-control">
+  </div>
+  </div>-----
+<div class="form-Group">
+  <label class="col-md-6 control-label" for="photopath">Photo Path</label>
+  <div class="col-md-6">
+    <input id="photopath" formControlName="pass" type="photopath" class="form-control">
+</div>
+</div><br>
+
+<div class="from-Group">
+  <button type="button" (click)="togglephotopreview"class="btn btn-primary">{{previewphoto ? "Hide" : "show" }} Preview</button>
+
+</div>
+
+<div>
+  <img [src]="photopath" height="200px" width="200px" *ngIf="photopath" />
+</div>
+----
+
+
+<div [formGroup]="skills">
+    <div class="form-Group">
+        <label class="col-sm-2 control-label" for="skillName">
+          Skill
+        </label>
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="skillName" placeholder="Name" formControlName="skillName">
+        </div>
+
+        <div class="col-sm-4">
+          <input type="text" class="form-control" id="exprianceInYear" placeholder="Experince in Year" formControlName="exprianceInYear">
+        </div>
+    </div>
+<div class="form-Group">
+  <label class="col-md-2 control-lable">Proficiency</label>
+    <div class="col-md-8">
+        <label class="radio-inline">
+          <input type="radio" id="proficiency" value="biginner" formControlName="proficiency">Beginner
+        </label>
+          <label class="radio-inline">
+            <input type="radio" id="proficiency" value="intermidiate" formControlName="proficiency">Intermidiate
+          </label>
+            <label class="radio-inline">
+              <input type="radio" id="proficiency" value="advanced" formControlName="proficiency">Advanced
+            </label>
+     </div>
+
+</div>
+
+
+    </div>
+
+  </div>
+    <div class="panal-footer">
+  <button type="button" name="onSubmit" class="btn btn-primary" type="submit">Save</button>
+  </div>
+  </div>
+  </form><br/>
+  
+  
+
+  <table border="1">
+      <tr>
+          <th style="padding: 10px">FormGroup</th>
+          <th style="padding: 10px">FormControl (name)</th>
+      </tr>
+
+      <tr>
+          <td style="padding: 10px">
+            touched : {{ employeeform.touched }}
+            <br/> dirty : {{ employeeform.dirty }}
+            <br/> valid : {{ employeeform.valid }}
+            <br/> Form values : {{ employeeform.value | json }}
+        </td>
+        
+        <td style="padding: 10px">
+            touched : {{ employeeform.get('name').touched }}
+            <br/> dirty : {{ employeeform.get('name').dirty }}
+            <br/> valid : {{ employeeform.get('name').valid }}
+            <br/> name value : {{ employeeform.get('name').value }}
+        </td>
+      </tr>
+
+  </table>

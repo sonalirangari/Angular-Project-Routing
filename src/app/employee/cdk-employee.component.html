@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div class="container">
+    <h2 class="text-info text-center">{{ title }}</h2>
+    <hr />
+    <div>
+      <!-- "cdkDrag" directive creates the draggable component. -->
+      <!-- <div class="box" cdkDrag>Drag me around!</div> -->
+      <div> </div>
+      <div cdkDropList (cdkDropListDropped)="onDrop($event)">
+        <div class="box" *ngFor="let item of products" cdkDrag>{{item}}</div>
+      </div>
+    </div>
+  </div>
